@@ -10,12 +10,14 @@ import { CommonAppModule } from './common-app/common-app.module';
 import { environment } from 'src/environments/environment';
 import { HomeComponent } from './home/home.component';
 import { DemosComponent } from './demos/demos.component';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DemosComponent
+    DemosComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule, FormsModule,

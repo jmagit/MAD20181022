@@ -8,3 +8,5 @@ export class ElipsisPipe implements PipeTransform {
       ? value : (value.substr(0, maxlen - 3) + '...');
   }
 }
+
+export const PIPES_CADENAS = [ElipsisPipe];

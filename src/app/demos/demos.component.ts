@@ -16,6 +16,8 @@ export class DemosComponent implements OnInit {
   ];
   idProvincia = 2;
 
+  fontsize = 24;
+
   resultado: any;
   visible = true;
   estetica = { importante: true, error: false, urgente: true };

@@ -29,7 +29,7 @@ export class NotificationService {
   public get Listado() {
     return Object.assign([], this.listado);
   }
-  public get HayNotificacione() {
+  public get HayNotificaciones() {
     return this.listado.length > 0;
   }
 
