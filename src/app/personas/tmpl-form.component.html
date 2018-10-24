@@ -1,0 +1,40 @@
+<form #miForm="ngForm">
+  <p>
+    Código:
+    <ng-container *ngIf="VM.Modo === 'add'">
+      <input type="number" id="id" name="id" [(ngModel)]="VM.Elemento.id"
+        #id="ngModel" required>
+      <span class="error" [hidden]="!id.errors?.required || miForm.pristine">Es obligatorio.</span>
+    </ng-container>
+    <ng-container *ngIf="VM.Modo !== 'add'">{{VM.Elemento.id}}</ng-container>
+    <br>
+    Nombre:
+    <input type="text" id="nombre" name="nombre" [(ngModel)]="VM.Elemento.nombre"
+      #nombre="ngModel" required minlength="2" maxlength="10">
+    <span class="error" [hidden]="!nombre.hasError('required')">Es obligatorio.</span>
+    <span class="error" [hidden]="!nombre?.errors?.minlength  && !nombre?.errors?.maxlength">
+      Debe tener entre 2 y 10 letras.
+    </span>
+    <br>
+    Apellidos:
+    <input type="text" id="apellidos" name="apellidos" [(ngModel)]="VM.Elemento.apellidos"
+      #apellidos="ngModel" minlength="2" maxlength="10" upperCase>
+    <span class="error" [hidden]="!apellidos?.errors?.minlength  && !apellidos?.errors?.maxlength">
+      Debe tener entre 2 y 10 letras.
+    </span>
+    <span class="error" [hidden]="!apellidos?.errors?.upperCase">
+      Tiene que estar en mayúsculas.
+    </span>
+    <br>
+    Edad:
+    <input type="number" id="edad" name="edad" [(ngModel)]="VM.Elemento.edad"
+      #edad="ngModel" min="16" max="67">
+    <span class="error" [hidden]="!edad?.errors?.minlength  && !edad?.errors?.maxlength">
+      Debe estar entre los 16 y 67 años.
+    </span>
+  </p>
+  <p>
+    <input type="button" value="Enviar" [disabled]="miForm.invalid" (click)="VM.send()">
+    <input type="button" value="Volver" (click)="VM.cancel()">
+  </p>
+</form>

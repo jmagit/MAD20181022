@@ -3,13 +3,16 @@ import { CommonModule } from '@angular/common';
 import { PIPES_CADENAS } from './pipes/cadenas.pipe';
 import { IndraSizerComponent } from './components/indra-sizer.component';
 import { PIPES_NUMERICOS } from './pipes/numericos.pipe';
+import { MIS_VALIDADORES } from './directives/validaciones.directive';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [PIPES_CADENAS, PIPES_NUMERICOS, IndraSizerComponent, ],
-  exports: [PIPES_CADENAS, PIPES_NUMERICOS, IndraSizerComponent, ],
+  declarations: [PIPES_CADENAS, PIPES_NUMERICOS, IndraSizerComponent,
+    MIS_VALIDADORES, ],
+  exports: [PIPES_CADENAS, PIPES_NUMERICOS, IndraSizerComponent,
+    MIS_VALIDADORES, ],
 })
 export class IndraCoreModule {
   constructor( @Optional() @SkipSelf() parentModule: IndraCoreModule) {

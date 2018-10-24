@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Nombre</th>
+    <td><input type="button" value="Añadir" (click)="VM.add()"></td>
+  </tr>
+  <tr *ngFor="let item of VM.Listado" >
+    <td>{{item.nombre}} {{item.apellidos}}</td>
+    <td>
+      <input type="button" value="Ver" (click)="VM.view(item.id)">
+      <input type="button" value="Editar" (click)="VM.edit(item.id)">
+      <input type="button" value="Borrar" (click)="VM.delete(item.id)">
+    </td>
+  </tr>
+</table>
