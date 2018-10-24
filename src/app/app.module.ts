@@ -1,3 +1,8 @@
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+import localeEsExtra from '@angular/common/locales/extra/es';
+registerLocaleData(localeEs, 'es', localeEsExtra);
+
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -12,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { DemosComponent } from './demos/demos.component';
 import { NotificationComponent } from './notification/notification.component';
 import { DinamicoComponent } from './dinamico/dinamico.component';
+import { CalculadoraComponent } from './calculadora/calculadora.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +25,8 @@ import { DinamicoComponent } from './dinamico/dinamico.component';
     HomeComponent,
     DemosComponent,
     NotificationComponent,
-    DinamicoComponent
+    DinamicoComponent,
+    CalculadoraComponent
   ],
   imports: [
     BrowserModule, FormsModule,

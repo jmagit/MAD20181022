@@ -1,0 +1,43 @@
+<h1>Calculadora</h1>
+<table class="Calculadora">
+  <tr>
+      <th colspan="4" align="right">
+          {{Resumen | toComaDecimal}}
+      </th>
+  </tr>
+  <tr>
+      <th colspan="4" align="right" class="Pantalla" >
+          {{Pantalla | toComaDecimal}}
+          <!-- <input type="number" [(ngModel)]="Pantalla"> -->
+      </th>
+  </tr>
+  <tr>
+      <td><input class="btnOperar" type="button" value="C" (click)="inicia()"></td>
+      <td colspan="2"><input class="btnOperar" type="button" value="BORRAR" (click)="borrar()"></td>
+      <td><input class="btnOperar" type="button" value="+" (click)="calcula('+')"></td>
+  </tr>
+  <tr>
+      <td><input class="btnDigito" type="button" value="7" (click)="ponDijito('7');"></td>
+      <td><input class="btnDigito" type="button" value="8" (click)="ponDijito('8');"></td>
+      <td><input class="btnDigito" type="button" value="9" (click)="ponDijito('9');"></td>
+      <td><input class="btnOperar" type="button" value="-" (click)="calcula('-')"></td>
+  </tr>
+  <tr>
+      <td><input class="btnDigito" type="button" value="4" (click)="ponDijito('4');"></td>
+      <td><input class="btnDigito" type="button" value="5" (click)="ponDijito('5');"></td>
+      <td><input class="btnDigito" type="button" value="6" (click)="ponDijito('6');"></td>
+      <td><input class="btnOperar" type="button" value="*" (click)="calcula('*');"></td>
+  </tr>
+  <tr>
+      <td><input class="btnDigito" type="button" value="1" (click)="ponDijito('1');"></td>
+      <td><input class="btnDigito" type="button" value="2" (click)="ponDijito('2');"></td>
+      <td><input class="btnDigito" type="button" value="3" (click)="ponDijito('3');"></td>
+      <td><input class="btnOperar" type="button" value="/" (click)="calcula('/');"></td>
+  </tr>
+  <tr>
+      <td width="25%"><input class="btnDigito" type="button" value="0" (click)="ponDijito('0');"></td>
+      <td width="25%"><input class="btnDigito" type="button" value="," (click)="ponComa()"></td>
+      <td width="25%"><input class="btnDigito" type="button" value="±" (click)="cambiaSigno()"></td>
+      <td width="25%"><input class="btnOperar" type="button" value="=" (click)="calcula('=');"></td>
+  </tr>
+</table>
