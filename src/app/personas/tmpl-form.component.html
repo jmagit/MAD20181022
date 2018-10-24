@@ -29,7 +29,7 @@
     Edad:
     <input type="number" id="edad" name="edad" [(ngModel)]="VM.Elemento.edad"
       #edad="ngModel" min="16" max="67">
-    <span class="error" [hidden]="!edad?.errors?.minlength  && !edad?.errors?.maxlength">
+    <span class="error" [hidden]="!edad?.errors?.min  && !edad?.errors?.max">
       Debe estar entre los 16 y 67 años.
     </span>
   </p>

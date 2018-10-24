@@ -35,8 +35,7 @@ export const MIN_VALIDATOR: any = {
  * A directive which installs the `MinValidator` for any `formControlName`,
  * `formControl`, or control with `ngModel` that also has a `min` attribute.
  *
- * @ngModule FormsModule
- * @ngModule ReactiveFormsModule
+ *
  */
 @Directive({
   selector: '[min][formControlName],[min][formControl],[min][ngModel]',
@@ -60,8 +59,8 @@ export class MinValidator implements Validator,
     }
   }
 
-  validate(control: AbstractControl): ValidationErrors|null {
-    return this.min == null ? null : this._validator(control);
+  validate(c: AbstractControl): ValidationErrors|null {
+    return this.min == null ? null : this._validator(c);
   }
 
   registerOnValidatorChange(fn: () => void): void { this._onChange = fn; }
