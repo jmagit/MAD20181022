@@ -10,7 +10,7 @@ export type ModoCRUD = 'list' | 'add' | 'edit' | 'view' | 'delete';
 })
 export class PersonasDAOService extends RESTDAOService<any, any> {
   constructor(http: HttpClient) {
-    super(http, 'personas');
+    super(http, 'personas', { withCredentials: true });
   }
 }
 
