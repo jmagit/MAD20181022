@@ -2,12 +2,12 @@
 <table class="Calculadora">
   <tr>
       <th colspan="4" align="right">
-          {{Resumen | slice:-30 | toComaDecimal}}
+          {{Resumen | slice:-30}}
       </th>
   </tr>
   <tr>
       <th colspan="4" align="right" class="Pantalla" >
-          {{Pantalla | toComaDecimal}}
+          {{Pantalla}}
           <!-- <input type="number" [(ngModel)]="Pantalla"> -->
       </th>
   </tr>
@@ -36,8 +36,12 @@
   </tr>
   <tr>
       <td width="25%"><input class="btnDigito" type="button" value="0" (click)="ponDijito('0');"></td>
-      <td width="25%"><input class="btnDigito" type="button" value="," (click)="ponComa()"></td>
+      <td width="25%"><input class="btnDigito" type="button" value="." (click)="ponComa()"></td>
       <td width="25%"><input class="btnDigito" type="button" value="±" (click)="cambiaSigno()"></td>
       <td width="25%"><input class="btnOperar" type="button" value="=" (click)="calcula('=');"></td>
   </tr>
+  <tr>
+    <td width="25%"><input class="btnDigito" type="button" value="PI" (click)="ponOperando(3.1416)"></td>
+    <td width="25%"><input class="btnOperar" type="button" value="x" (click)="calcula('x');"></td>
+</tr>
 </table>

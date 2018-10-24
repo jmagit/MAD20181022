@@ -18,7 +18,7 @@
         </tr>
       </table>
     </td>
-    <td><calculadora [init]="valCalculadora" (updated)="ponResultado('DOS', $event)"></calculadora></td>
+    <td><calculadora [init]="valCalculadora" (updated)="valCalculadora=$event"></calculadora></td>
   </tr>
 </table>
 <input type="number" [(ngModel)] = "valCalculadora">

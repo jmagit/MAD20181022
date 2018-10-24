@@ -4,7 +4,7 @@ import { LoggerService } from '../../indra-core';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'calculadora',
-  templateUrl: './calculadora.component.html',
+  templateUrl: './calculadora.component.1.html',
   styleUrls: ['./calculadora.component.css']
 })
 export class CalculadoraComponent implements OnInit, OnChanges {
@@ -120,13 +120,13 @@ export class CalculadoraComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    if (this.init) {
-      this.ponOperando(this.init);
-    }
-  }
-  ngOnChanges(changes: SimpleChanges): void {
     // if (this.init) {
     //   this.ponOperando(this.init);
     // }
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.init) {
+      this.ponOperando(this.init);
+    }
   }
 }
