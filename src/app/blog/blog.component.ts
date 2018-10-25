@@ -1,15 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { PersonasViewModelService } from './personas.service';
+import { BlogViewModelService } from './blog.service';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { AuthService } from '../seguridad/servicios';
 
 @Component({
-  selector: 'app-personas',
-  templateUrl: './personas.component.html',
-  styleUrls: ['./personas.component.css']
+  selector: 'app-blog',
+  templateUrl: './blog.component.html',
+  styleUrls: ['./blog.component.css']
 })
-export class PersonasComponent implements OnInit {
-  constructor(private vm: PersonasViewModelService) { }
+export class BlogComponent implements OnInit {
+  constructor(private vm: BlogViewModelService) { }
   public get VM() { return this.vm; }
   ngOnInit() {
     this.vm.list();
@@ -17,38 +16,37 @@ export class PersonasComponent implements OnInit {
 }
 
 @Component({
-  selector: 'app-personas-list',
+  selector: 'app-blog-list',
   templateUrl: './tmpl-list.component.html',
-  styleUrls: ['./personas.component.css']
+  styleUrls: ['./blog.component.css']
 })
-export class PersonasListComponent implements OnInit {
-  constructor(private vm: PersonasViewModelService, public auth: AuthService) { }
+export class BlogListComponent implements OnInit {
+  constructor(private vm: BlogViewModelService) { }
   public get VM() { return this.vm; }
-  public get Auth() { return this.auth; }
   ngOnInit() {
     this.vm.list();
   }
 }
 @Component({
-  selector: 'app-personas-add',
+  selector: 'app-blog-add',
   templateUrl: './tmpl-form.component.html',
-  styleUrls: ['./personas.component.css']
+  styleUrls: ['./blog.component.css']
 })
-export class PersonasAddComponent implements OnInit {
-  constructor(private vm: PersonasViewModelService) { }
+export class BlogAddComponent implements OnInit {
+  constructor(private vm: BlogViewModelService) { }
   public get VM() { return this.vm; }
   ngOnInit() {
     this.vm.add();
   }
 }
 @Component({
-  selector: 'app-personas-edit',
+  selector: 'app-blog-edit',
   templateUrl: './tmpl-form.component.html',
-  styleUrls: ['./personas.component.css']
+  styleUrls: ['./blog.component.css']
 })
-export class PersonasEditComponent implements OnInit, OnDestroy {
+export class BlogEditComponent implements OnInit, OnDestroy {
   private obs$: any;
-  constructor(private vm: PersonasViewModelService,
+  constructor(private vm: BlogViewModelService,
     private route: ActivatedRoute, private router: Router) { }
   public get VM() { return this.vm; }
   ngOnInit() {
@@ -65,13 +63,13 @@ export class PersonasEditComponent implements OnInit, OnDestroy {
    ngOnDestroy() { this.obs$.unsubscribe(); }
  }
 @Component({
-  selector: 'app-personas-view',
+  selector: 'app-blog-view',
   templateUrl: './tmpl-view.component.html',
-  styleUrls: ['./personas.component.css']
+  styleUrls: ['./blog.component.css']
 })
-export class PersonasViewComponent implements OnInit, OnDestroy {
+export class BlogViewComponent implements OnInit, OnDestroy {
   private obs$: any;
-  constructor(private vm: PersonasViewModelService,
+  constructor(private vm: BlogViewModelService,
     private route: ActivatedRoute, private router: Router) { }
   public get VM() { return this.vm; }
   ngOnInit() {
@@ -88,5 +86,5 @@ export class PersonasViewComponent implements OnInit, OnDestroy {
    ngOnDestroy() { this.obs$.unsubscribe(); }
  }
 
-export const PERSONAS_COMPONENT = [PersonasComponent, PersonasListComponent,
-  PersonasAddComponent, PersonasEditComponent, PersonasViewComponent];
+export const BLOG_COMPONENT = [BlogComponent, BlogListComponent,
+  BlogAddComponent, BlogEditComponent, BlogViewComponent];

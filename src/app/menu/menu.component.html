@@ -1,15 +1,37 @@
-<table>
-  <td>
-    <img src="assets/logo.png" alt="Logotipo de Indra">
-  </td>
-  <td>
-    <a routerLink="/" >inicio</a>&nbsp;|&nbsp;
-    <a routerLink="/demos" >demos</a>&nbsp;|&nbsp;
-    <a routerLink="/chisme/de/hacer/calculos" >calculadora</a>&nbsp;|&nbsp;
-    <a routerLink="/personas" >personas</a>&nbsp;|&nbsp;
-    <a routerLink="/pepito/grillo" >pepito</a>&nbsp;|&nbsp;
-    <a routerLink="/esta/no/existe" >false</a>&nbsp;|&nbsp;
-    <a routerLink="/config" >config</a>&nbsp;|&nbsp;
-    <a routerLink="/config/datos" >datos</a>
-  </td>
-</table>
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <a class="navbar-brand" routerLink="/">
+      <img src="assets/logo.png" width="120">
+      <ng-content></ng-content>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/" >inicio</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/demos" >demos</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/chisme/de/hacer/calculos" >calculadora</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/personas" >personas</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/blog" >blog</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/pepito/grillo" >pepito</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/config" >config</a>
+        </li>
+      </ul>
+      <app-login></app-login>
+    </div>
+  </nav>

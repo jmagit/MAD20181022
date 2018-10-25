@@ -3,8 +3,7 @@ import { NotificationService } from '../common-app';
 import { RESTDAOService } from '../base-code/dao.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
-export type ModoCRUD = 'list' | 'add' | 'edit' | 'view' | 'delete';
+import { ModoCRUD } from '../base-code/view-model.service';
 
 @Injectable({
   providedIn: 'root'

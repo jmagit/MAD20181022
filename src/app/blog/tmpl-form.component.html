@@ -1,0 +1,68 @@
+<form #miForm="ngForm" class="was-validated">
+    <div class="form-group">
+      <label>Código</label>
+      <ng-container *ngIf="VM.Modo === 'add'">
+        <input class="form-control" type="number" name="id" id="id" [(ngModel)]="VM.Elemento.id" #id="ngModel" required>
+        <span class="invalid-feedback" [hidden]="!id.hasError('required') || miForm.pristine">Es obligatorio.</span>
+      </ng-container>
+      <ng-container *ngIf="VM.Modo !== 'add'">
+        <label class="form-text">{{VM.Elemento.id}}</label>
+      </ng-container>
+    </div>
+    <div class="form-group">
+      <label for="titulo">Titulo</label>
+      <input class="form-control" type="text" name="titulo" id="titulo" [(ngModel)]="VM.Elemento.titulo" #titulo="ngModel" required
+        minlength="2" maxlength="100">
+      <span class="invalid-feedback" [hidden]="!titulo.hasError('required')">Es obligatorio.</span>
+      <span class="invalid-feedback" [hidden]="!titulo.errors?.minlength && !titulo.errors?.maxlength">
+        Debe tener entre 2 y 100 caracteres.
+      </span>
+    </div>
+    <div class="form-group">
+      <label for="texto">Contenido</label>
+      <p-editor [(ngModel)]="VM.Elemento.texto" [style]="{'height':'320px'}" name="texto" #texto="ngModel" minlength="2"
+      maxlength="1000"></p-editor>
+      <!-- <textarea class="form-control" rows="5" name="texto" id="texto" [(ngModel)]="VM.Elemento.texto" #texto="ngModel" minlength="2"
+        maxlength="1000"></textarea> -->
+      <span class="invalid-feedback" [hidden]="!texto.errors?.minlength && !texto.errors?.maxlength">
+        Debe tener entre 2 y 1000 caracteres.
+      </span>
+      {{VM.Elemento?.texto?.length}}
+    </div>
+    <div class="form-group">
+      <label for="autor">Autor</label>
+      <input class="form-control" type="text" name="autor" id="autor" [(ngModel)]="VM.Elemento.autor" #autor="ngModel" minlength="2"
+        maxlength="50">
+      <span class="invalid-feedback" [hidden]="!autor.errors?.minlength && !autor.errors?.maxlength">
+        Debe tener entre 2 y 50 caracteres.
+      </span>
+    </div>
+    <div class="form-group">
+      <label for="fecha">Fecha</label>
+      <input class="form-control" type="date" name="fecha" id="fecha" [(ngModel)]="VM.Elemento.fecha" #fecha="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="fotourl">Foto</label>
+      <input class="form-control" type="url" name="fotourl" id="fotourl" [(ngModel)]="VM.Elemento.fotourl" #fotourl="ngModel"
+        minlength="2" maxlength="200">
+      <span class="invalid-feedback" [hidden]="!fotourl.errors?.minlength && !fotourl.errors?.maxlength">
+        Debe tener entre 2 y 200 caracteres.
+      </span>
+    </div>
+    <p-inplace *ngIf="VM.Elemento.fotourl">
+        <span pInplaceDisplay>
+            <span class="fa fa-picture-o"></span><span style="margin-left:8px">Ver foto</span>
+        </span>
+        <span pInplaceContent>
+            <img [src]="VM.Elemento.fotourl" alt="Foto del Blog">
+        </span>
+    </p-inplace>
+
+    <div class="text-right">
+      <div class="btn-group">
+        <input class="btn btn-outline-success" type="button" value="Enviar" (click)="VM.send()" [disabled]="miForm.invalid">
+        <input *ngIf="VM.Modo !== 'add'" class="btn btn-outline-danger" type="button" value="Borrar" (click)="VM.remove(VM.Elemento.id)">
+        <input class="btn btn-outline-primary" type="button" value="Volver" (click)="VM.cancel()">
+      </div>
+    </div>
+  </form>

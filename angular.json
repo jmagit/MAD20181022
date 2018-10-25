@@ -23,10 +23,21 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.less"
+              "src/styles.less",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "node_modules/quill/dist/quill.core.css",
+              "node_modules/quill/dist/quill.snow.css"
             ],
-            "scripts": []
-          },
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.js",
+              "node_modules/quill/dist/quill.js"
+            ]
+           },
           "configurations": {
             "production": {
               "fileReplacements": [
@@ -79,9 +90,20 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.less"
+              "src/styles.less",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "node_modules/quill/dist/quill.core.css",
+              "node_modules/quill/dist/quill.snow.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.js",
+              "node_modules/quill/dist/quill.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

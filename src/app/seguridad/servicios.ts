@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse } from '@angular/common/http';
+import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse, HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap, finalize } from 'rxjs/operators';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Injectable()
 export class AuthService {
@@ -39,6 +40,28 @@ export class AuthService {
     }
   }
 }
+@Injectable({providedIn: 'root'})
+export class LoginService {
+  constructor(private http: HttpClient, private auth: AuthService) { }
+  get isAutenticated() { return this.auth.isAutenticated;  }
+  get Name() { return this.auth.Name;  }
+
+  login(usr: string, pwd: string) {
+    return new Observable(observable =>
+      this.http.post('http://localhost:4321/login', { name: usr, password: pwd })
+        .subscribe(
+          data => {
+            this.auth.login(data['success'], data['token'], data['name']);
+            observable.next(this.auth.isAutenticated);
+          },
+          (err: HttpErrorResponse) => { observable.error(err); }
+        )
+    );
+  }
+  logout() {
+    this.auth.logout();
+  }
+}
 
 @Injectable()
 export class LoggingInterceptor implements HttpInterceptor {
@@ -56,6 +79,13 @@ export class LoggingInterceptor implements HttpInterceptor {
           })
         );
     }
+}
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthGuard implements CanActivate {
+  constructor(private authService: AuthService, private router: Router) {}
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean { return this.authService.isAutenticated;  }
 }
 
 @Injectable({

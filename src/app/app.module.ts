@@ -25,6 +25,11 @@ import { PersonasViewModelService, PersonasViewModelDAOService } from './persona
 import { AuthInterceptor, AuthService, LoggingInterceptor } from './seguridad/servicios';
 import { MenuComponent } from './menu/menu.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { BLOG_COMPONENT } from './blog/blog.component';
+
+import {EditorModule} from 'primeng/editor';
+import {InplaceModule} from 'primeng/inplace';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -36,12 +41,15 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     CalculadoraComponent,
     PERSONAS_COMPONENT,
     MenuComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    BLOG_COMPONENT,
+    LoginComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
     AppRoutingModule,
     IndraCoreModule, ClientesModule, CommonAppModule,
+    EditorModule, InplaceModule,
   ],
   providers: [
     LoggerService,

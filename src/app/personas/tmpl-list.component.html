@@ -1,14 +1,14 @@
-<table>
+<table class="table table-striped table-hover">
   <tr>
     <th>Nombre</th>
-    <td><input type="button" value="Añadir" routerLink="/personas/add"></td>
+    <td><input *ngIf="Auth.isAutenticated" type="button" value="Añadir" routerLink="/personas/add"></td>
   </tr>
   <tr *ngFor="let item of VM.Listado" >
     <td><a routerLink="/personas/{{item.id}}/{{item.nombre}}-{{item.apellidos}}">
       {{item.nombre}} {{item.apellidos}}</a></td>
     <td>
-      <input type="button" value="Editar" [routerLink]="['/personas', item.id, 'edit']">
-      <input type="button" value="Borrar" (click)="VM.delete(item.id)">
+      <input *ngIf="Auth.isAutenticated" type="button" value="Editar" [routerLink]="['/personas', item.id, 'edit']">
+      <input *ngIf="Auth.isAutenticated" type="button" value="Borrar" (click)="VM.delete(item.id)">
     </td>
   </tr>
 </table>
